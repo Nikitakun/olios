@@ -104,7 +104,7 @@ img {
     vertical-align: middle;
     background-repeat: no-repeat;
     background-position: 47px center;
-    background-image: url(../pics/right-menu-logos/logos.png);
+    background-image: url(src/pics/pics/right-menu-logos/logos.png);
     transition: transform 0.2s cubic-bezier(0, 0.23, 0.34, 2.47);
     cursor: pointer; }
     .right-nav__link span {
@@ -218,7 +218,7 @@ img {
 .production-wrapper {
   padding-top: 115px;
   max-width: 1490px;
-  overflow-x: hidden; }
+  outline: 3px solid rgba(255, 0, 0, 0.2); }
   @media screen and (min-width: 37em) {
     .production-wrapper {
       padding-left: 160px; } }
@@ -258,18 +258,19 @@ img {
     max-width: 215px;
     color: #c1c1c1;
     text-transform: uppercase;
-    background: url("../pics/right-menu-logos/living-room.png") no-repeat right center; }
+    background: url(src/pics/pics/right-menu-logos/living-room.png) no-repeat right center; }
 
 .categories {
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.07, 0.77, 0.29, 1.54); }
-  .categories--open {
+  .categories--open-enter, .categories--open-appear {
     transform: translateX(0%); }
   .categories__products {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    text-align: left; }
+    text-align: left;
+    outline: 3px solid rgba(0, 0, 255, 0.4); }
     .categories__products-item {
       padding-top: 40px;
       padding-left: 30px;
@@ -366,7 +367,7 @@ img {
     width: 100%;
     height: 53.5vh;
     margin-bottom: 9.5vh;
-    background-image: url(../pics/products-big/chair.jpg);
+    background-image: url(src/pics/pics/products-big/chair.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center; }
@@ -528,5 +529,3 @@ img {
     color: #a8a8a8; }
   .recommended__image img {
     display: inline-block; }
-
-/*# sourceMappingURL=style.css.map */

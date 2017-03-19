@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Product = () => {
+const ProductComponent = (props) => {
 	return (
 		<section className="product">
 			<div className="product__picture-section">
@@ -17,7 +17,7 @@ const Product = () => {
 			</div>
 			<div className="product__info-section">
 				<div className="product__details">
-					<h1 className="product__heading">White Seat - office</h1>
+					<h1 className="product__heading">{props.product}</h1>
 					<p className="product__description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum interdum malesuada. Sed ornare posuere lobortis.</p>
 					<div className="product__cost-info">
 						<div className="product__cost-block">
@@ -41,22 +41,28 @@ const Product = () => {
 					<h1 className="recommended__heading">Recommended</h1>
 					<ul className="recommended__list">
 						<li className="recommended__item">
-							<div className="recommended__image"><img src="src/pics/products-small/red-seat--small.png" /></div>
-							<div className="recommended__caption"><span className="recommended__name">RED SEAT</span>
-								<p className="recommended__description">Lorem ipsum dolor sit amet</p>
-							</div>
+							<Link to='/categories/living-room/red-seat'>
+								<div className="recommended__image"><img src="src/pics/products-small/red-seat--small.png" /></div>
+								<div className="recommended__caption"><span className="recommended__name">RED SEAT</span>
+									<p className="recommended__description">Lorem ipsum dolor sit amet</p>
+								</div>
+							</Link>
 						</li>
 						<li className="recommended__item">
-							<div className="recommended__image"><img src="src/pics/products-small/red-seat--small.png" /></div>
-							<div className="recommended__caption"><span className="recommended__name">RED SEAT</span>
-								<p className="recommended__description">Lorem ipsum dolor sit amet</p>
-							</div>
+							<Link to='/categories/living-room/red-seat'>
+								<div className="recommended__image"><img src="src/pics/products-small/red-seat--small.png" /></div>
+								<div className="recommended__caption"><span className="recommended__name">RED SEAT</span>
+									<p className="recommended__description">Lorem ipsum dolor sit amet</p>
+								</div>
+							</Link>
 						</li>
 						<li className="recommended__item">
-							<div className="recommended__image"><img src="src/pics/products-small/red-seat--small.png" /></div>
-							<div className="recommended__caption"><span className="recommended__name">RED SEAT</span>
-								<p className="recommended__description">Lorem ipsum dolor sit amet</p>
-							</div>
+							<Link to='/categories/living-room/red-seat'>
+								<div className="recommended__image"><img src="src/pics/products-small/red-seat--small.png" /></div>
+								<div className="recommended__caption"><span className="recommended__name">RED SEAT</span>
+									<p className="recommended__description">Lorem ipsum dolor sit amet</p>
+								</div>
+							</Link>
 						</li>
 					</ul>
 				</section>
@@ -65,4 +71,8 @@ const Product = () => {
 	);
 };
 
-export default Product;
+ProductComponent.propTypes = {
+	product: React.PropTypes.string.isRequired
+};
+
+export default ProductComponent;

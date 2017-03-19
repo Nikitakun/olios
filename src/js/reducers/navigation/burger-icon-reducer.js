@@ -1,4 +1,4 @@
-import actions from '../actions/action-constants';
+import actions from '../../actions/action-constants';
 
 export default function burgerIconReducer(state = false, action) {
 	switch(action) {

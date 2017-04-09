@@ -6,6 +6,22 @@ let path = require('path');
 let webpack = require('webpack');
 let ExtractTextPlugin  = require('extract-text-webpack-plugin');
 
+function definePlugins(env) {
+	let plugins = [];
+	plugins.push(new ExtractTextPlugin({filename: './css/style.css',
+		disable: env.dev}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				'NODE_ENV': JSON.stringify('production')
+			}
+		}));
+	if (env.prod) {
+		plugins.push(new webpack.optimize.UglifyJsPlugin());
+	}
+	return plugins;
+}
+
+
 module.exports = env => {
 	return {
 		context: path.join(__dirname, 'src'),
@@ -52,16 +68,7 @@ module.exports = env => {
 			]
 		},
 
-		plugins: [
-			new ExtractTextPlugin({filename: './css/style.css',
-				disable: env.dev}),
-			new webpack.DefinePlugin({
-				'process.env': {
-					'NODE_ENV': JSON.stringify('production')
-				}
-			}),
-			new webpack.optimize.UglifyJsPlugin()
-		],
+		plugins: definePlugins(env),
 
 		devServer: {
 			hot: env.dev,

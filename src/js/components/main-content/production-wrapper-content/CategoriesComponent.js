@@ -9,7 +9,7 @@ const CategoriesComponent = (props) => {
 		<section className={nameOfClass}>
 			<ul className="categories__products">
 				<li className="categories__products-item">
-					<Link to='/categories/living-room/red-seat'>
+					<Link className='categories__products-item-link' to='/categories/living-room/red-seat'>
 						<div className="categories__products-image"><img src="src/pics/products-small/red-seat--small.png" /></div>
 						<div className="categories__products-caption"><span className="categories__products-name">RED SEAT</span>
 							<p className="categories__products-description">Lorem ipsum dolor sit amet</p><span className="categories__products-price">$45</span>
@@ -17,7 +17,7 @@ const CategoriesComponent = (props) => {
 					</Link>
 				</li>
 				<li className="categories__products-item">
-					<Link to='/categories/living-room/white-table'>
+					<Link className='categories__products-item-link' to='/categories/living-room/white-table'>
 						<div className="categories__products-image"><img src="src/pics/products-small/red-seat--small.png" /></div>
 						<div className="categories__products-caption"><span className="categories__products-name">WHITE TABLE</span>
 							<p className="categories__products-description">Lorem ipsum dolor sit amet</p><span className="categories__products-price">$350</span>
@@ -25,7 +25,7 @@ const CategoriesComponent = (props) => {
 					</Link>
 				</li>
 				<li className="categories__products-item">
-					<Link to='/categories/living-room/blue-seat'>
+					<Link className='categories__products-item-link' to='/categories/living-room/blue-seat'>
 						<div className="categories__products-image"><img src="src/pics/products-small/red-seat--small.png" /></div>
 						<div className="categories__products-caption"><span className="categories__products-name">BLUE SEAT</span>
 							<p className="categories__products-description">Lorem ipsum dolor sit amet</p><span className="categories__products-price">$35</span>
@@ -33,7 +33,7 @@ const CategoriesComponent = (props) => {
 					</Link>
 				</li>
 				<li className="categories__products-item">
-					<Link to='/categories/living-room/modern-bed'>
+					<Link className='categories__products-item-link' to='/categories/living-room/modern-bed'>
 						<div className="categories__products-image"><img src="src/pics/products-small/red-seat--small.png" /></div>
 						<div className="categories__products-caption"><span className="categories__products-name">MODERN BED</span>
 							<p className="categories__products-description">Lorem ipsum dolor sit amet</p><span className="categories__products-price">$120</span>
@@ -41,7 +41,7 @@ const CategoriesComponent = (props) => {
 					</Link>
 				</li>
 				<li className="categories__products-item">
-					<Link to='/categories/living-room/dark-seat'>
+					<Link className='categories__products-item-link' to='/categories/living-room/dark-seat'>
 						<div className="categories__products-image"><img src="src/pics/products-small/red-seat--small.png" /></div>
 						<div className="categories__products-caption"><span className="categories__products-name">DARK SEAT</span>
 							<p className="categories__products-description">Lorem ipsum dolor sit amet</p><span className="categories__products-price">$50</span>

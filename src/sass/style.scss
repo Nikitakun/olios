@@ -34,6 +34,9 @@ $size-recommended-heading: (33rem / 18);
 $size-recommended-item-heading: (23rem / 18);
 $size-recommended-item-text: (13rem / 18);
 
+$size-search-label: (36rem / 18);
+$size-search-item: (72rem / 18);
+
 //font-weights
 $weight-thin: 100;
 $weight-light: 300;
@@ -62,6 +65,8 @@ $color-products-main-description: #a8a8a8;
 
 $color-recommended-heading: #ccc;
 $color-recommended-item-text: #a8a8a8;
+
+$color-search-input: #e4e4e4;
 
 %reset {
   margin: 0;
@@ -126,6 +131,7 @@ img {
   width: 100%;
   height: 100px;
   background: $color-menu-back;
+  z-index: 1;
 
   @media screen and (min-width: round(590em/16)) {
     display: block;
@@ -176,11 +182,10 @@ img {
   transform-origin: 100% 50%;
   transform: rotateY(-110deg);
   transition: transform .8s cubic-bezier(0, -0.07, 0, 1.97);
+  z-index: 10;
 
   &--open {
-    &-enter {
       transform: rotateY(0deg);
-    }
   }
   
   &__block {
@@ -386,6 +391,13 @@ img {
   @media (min-width: round(1840em/16)) {
     padding-left: 0;
   }
+
+  &--producted {
+    padding-left: 160px;
+    margin: 0;
+    max-width: none;
+  }
+
 }
 
 .category-indicator {
@@ -434,9 +446,9 @@ img {
   transform: translateX(100%);
   transition: transform .3s cubic-bezier(0.07, 0.77, 0.29, 1.54);
 
-  &--open {
-      transform: translateX(0%);
-  }
+    &--open {
+        transform: translateX(0%);
+    }
 
     &__products {
       display: flex;
@@ -445,14 +457,18 @@ img {
       text-align: left;
 
       &-item {
-        padding-top: 40px;
-        padding-left: 30px;
-        padding-bottom: 25px;
         margin-right: 2.6%;
         margin-bottom: 2.6%;
+        padding-top: 40px;
         width: 100%;
         max-width: 340px;
         background: #fff;
+
+        &-link {
+          padding-left: 30px;
+          padding-bottom: 25px;
+          color: $color-base;
+        }
 
         @media (min-width: round(1200em / 16)) {
           width: (34000% / 1490);
@@ -463,9 +479,15 @@ img {
           display: flex;
           align-items: center;
           margin-right: 0;
-          padding-left: (10500% / 1110);
           // padding-right: (9000% / 1110);
           width: (111000% / 1490);
+
+          & .categories__products-item-link {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            padding-left: (10500% / 1110);
+          }
 
           & .categories__products-image {
             margin-left: 0;
@@ -492,8 +514,14 @@ img {
         &:nth-child(4) {
           display: flex;
           align-items: center;
-          padding-left: 30px;
           width: (72600% / 1490);
+
+          & .categories__products-item-link {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            padding-left: 30px;
+          }
 
           & .categories__products-image {
             margin-left: 0;
@@ -828,6 +856,111 @@ img {
     & img {
       display: inline-block;
     }
+  }
+
+}
+
+.search {
+  position: fixed;
+  padding-top: 20vh;
+  width: 100%;
+  height: 100%;
+  background: rgba(#fff, 90%);
+  top: 0;
+  overflow-y: scroll;
+
+  @media screen and (min-width: round(590em/16)) {
+    padding-left: 100px;
+  }
+
+  &-wrapper {
+    margin: 0 auto;
+    max-width: 1570px;
+  }
+
+  &__panel {
+    margin-bottom: floor(18500vh / 1440);
+    padding: 0 10px;
+    text-align: left;
+  }
+
+  &__input {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+    font-size: 7vh;
+    border: none;
+    border-bottom: 2px solid $color-search-input;
+    outline: none;
+    text-transform: uppercase;
+
+    @media (min-width: floor(570em / 16)) {
+      font-size: 10vh;
+    }
+
+    &:focus + label {
+      transform: translateY(0px);
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 1rem;
+    font-weight: $weight-light;
+    color: rgba(#000, 0.3);
+    transform: translateY(-70px);
+    transition: transform 0.1s ease-in;
+
+    @media (min-width: floor(570em / 16)) {
+      font-size: $size-search-label;
+      transform: translateY(-90px);
+    }
+  }
+
+  &__results {
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &-item {
+      height: 175px;
+      font-size: 1.2rem;
+      font-weight: $weight-light;
+      text-transform: uppercase;
+
+      @media (min-width: floor(570em / 16)) {
+        margin-right: 100px;
+        font-size: $size-search-item;
+      }
+
+      &-image {
+        display: inline-block;
+        margin-right: 35px;
+        height: 100%;
+        width: 170px;
+        vertical-align: middle;
+
+        & img {
+          max-width: 100%;
+        }
+      }
+
+      & span {
+        color: $color-base;
+        vertical-align: middle;
+      }
+
+    }
+
+
+  }
+
+  &__indicator {
+    font-weight: $weight-black;
+    font-size: (30rem / 18);
   }
 
 }

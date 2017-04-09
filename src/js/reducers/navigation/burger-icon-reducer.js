@@ -1,7 +1,7 @@
 import actions from '../../actions/action-constants';
 
 export default function burgerIconReducer(state = false, action) {
-	switch(action) {
+	switch(action.type) {
 		case actions.TOGGLE_RIGHT_NAV:
 			return !state;
 

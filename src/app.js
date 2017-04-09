@@ -7,7 +7,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import AppContentContainer from './js/containers/AppContentContainer';
 import HomeContainer from './js/containers/HomeContainer';
 import CategoriesContainer from './js/containers/CategoriesContainer';
-import ProductContainer from './js/containers/ProductContainer';
+import SearchContainer from './js/containers/SearchContainer';
 import './sass/style.scss';
 
 function requireAll(r) {
@@ -20,10 +20,12 @@ const store = createStore(rootReducer);
 ReactDOM.render(
     <Provider store={store}>
 		<Router history={hashHistory}>
-			<Route path="/" component={AppContentContainer}>
+			<Route path='/' component={AppContentContainer}>
 				<IndexRoute component={HomeContainer} />
 				<Route path='/categories/:categoryType/(:product)' component={CategoriesContainer}/>
+				<Route path='/search' component={SearchContainer}/>
 			</Route>
+
 		</Router>
 	</Provider>,
     document.getElementById('app')

@@ -1,7 +1,33 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-const LeftNavComponent = () => {
+const LeftNavComponent = (props) => {
+
+	let nameOfClass = props.show ? 'cart cart--show' : 'cart';
+
+	function deleteCartItem(e) {
+		props.deleteItem(e.target.key);
+	}
+
+	function renderCartItems() {
+
+		let elems = [];
+
+		if (props.items.length) {
+			props.items.forEach(e => {
+				elems.push(<div className="cart__item" key={e.key}><span className="cart__item-name">{e.name}</span><span className="cart__item-amount"></span><span className="cart__close-button" onClick={deleteCartItem} /></div>);
+			});
+		}
+
+		return elems;
+	}
+
+	function toggleCart(e) {
+		console.log(e.target);
+		if (e.target.tagName === 'LI' || e.target.tagName === 'PATH' || e.target.tagName === 'SVG') {
+			props.toggleCart();
+		}
+	}
 
 	return (
 		<nav className="left-nav"><a className="main-logo" href="#"><img className="left-nav__image" src="src/pics/logo.png" /></a>
@@ -16,7 +42,10 @@ const LeftNavComponent = () => {
 						</svg>
 					</Link>
 				</li>
-				<li className="left-nav__item">
+				<li className="left-nav__item" onClick={toggleCart}>
+					<section className={nameOfClass}>
+						{renderCartItems()}
+					</section>
 					<svg className="left-nav__image" preserveAspectRatio="xMidYMid" width={36} height={32} viewBox="0 0 36 32">
 						<defs>
 							<style dangerouslySetInnerHTML={{__html: '\n                .cls-1 {\n                fill: #d8d8d8;\n                fill-rule: evenodd;\n                }\n              ' }} />

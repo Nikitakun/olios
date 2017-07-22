@@ -5,6 +5,11 @@ const ProductComponent = (props) => {
 
 	let nameOfClass = props.mounted ? 'product product--open' : 'product';
 
+	function fillCart(e) {
+		e.preventDefault();
+		props.fillCart({name: props.product});
+	}
+
 	return (
 		<section className={nameOfClass}>
 			<div className="product__picture-section">
@@ -38,7 +43,7 @@ const ProductComponent = (props) => {
 									</ul>
 								</li>
 							</ul>
-						</div><a className="button__cart-add">Add to cart</a>
+						</div><a href="#" className="button__cart-add" onClick={fillCart}>Add to cart</a>
 					</div>
 				</div>
 				<section className="recommended">
@@ -77,7 +82,8 @@ const ProductComponent = (props) => {
 
 ProductComponent.propTypes = {
 	product: React.PropTypes.string.isRequired,
-	mounted: React.PropTypes.bool.isRequired
+	mounted: React.PropTypes.bool.isRequired,
+	fillCart: React.PropTypes.func.isRequired
 };
 
 export default ProductComponent;

@@ -16,13 +16,11 @@ class CategoriesContainer extends React.Component {
 	}
 
 	componentWillMount() {
-		console.log('woah');
 		this.props.changeCategory(this.props.params.categoryType);
 		this.props.toggleProduct(this.props.params.product);
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log('prooops', arguments);
 		if (nextProps.params.categoryType !== this.props.params.categoryType) {
 			this.props.changeCategory(nextProps.params.categoryType);
 		}

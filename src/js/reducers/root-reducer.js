@@ -4,6 +4,7 @@ import burgerIconToggle from './navigation/burger-icon-reducer';
 import {categoriesReducer, squeezeCategoriesReducer} from './categories-reducer';
 import productReducer from './product-reducer';
 import searchReducer from './search-reducer';
+import cartReducer from './cart-reducer';
 
 export default combineReducers(
 	{
@@ -12,6 +13,7 @@ export default combineReducers(
 		categoryChange: categoriesReducer,
 		squeezeCategories: squeezeCategoriesReducer,
 		productChange: productReducer,
-		searchResults: searchReducer
+		searchResults: searchReducer,
+		cartReducer
 	}
 );

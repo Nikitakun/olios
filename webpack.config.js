@@ -50,20 +50,19 @@ module.exports = env => {
 					test: /\.scss$/,
 					loaders: ExtractTextPlugin.extract({
 						fallback: 'style-loader',
-						use: ['css-loader', 'sass-loader']
+						use: ['css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
 					})
 				},
 				{
 					test: /\.css$/,
 					loader: ExtractTextPlugin.extract({
 						fallback: 'style-loader',
-						use: 'css-loader'
+						use: ['css-loader', 'resolve-url-loader']
 					})
 				},
 				{
 					test: /\.(png|jpg|svg)$/i,
-					loader: 'file-loader?name=[path][name].[ext]&publicPath=src/pics/&outputPath=public/src/'
-
+					loader: 'file-loader?context=src/pics/&name=[path][name].[ext]&publicPath=src/pics/&outputPath=public/src/'
 				}
 			]
 		},

@@ -1,5 +1,7 @@
 import React from 'react';
 import Product from '../components/main-content/Product';
+import {connect} from 'react-redux';
+import { fillCart } from '../actions/cart-actions';
 
 class ProductContainer extends React.Component {
 
@@ -7,7 +9,7 @@ class ProductContainer extends React.Component {
 		super();
 		this.state = {
 			mounted: false
-		}
+		};
 	}
 
 	componentDidMount() {
@@ -18,7 +20,7 @@ class ProductContainer extends React.Component {
 
 	renderProduct() {
 		if (this.props.product !== ' ') {
-			return <Product product={this.props.product} mounted={this.state.mounted}/>;
+			return <Product product={this.props.product} mounted={this.state.mounted} fillCart={this.props.fillCart}/>;
 		} else {
 			return (
 				<div>
@@ -35,5 +37,12 @@ class ProductContainer extends React.Component {
 	}
 }
 
+function mapDispatchToProps(dispatch) {
+	return {
+		fillCart: (name) => {
+			dispatch(fillCart(name));
+		}
+	}
+}
 
-export default ProductContainer;
+export default connect(null, mapDispatchToProps)(ProductContainer);

@@ -66,6 +66,8 @@ img {
   @media screen and (min-width: 37em) {
     .left-nav__item {
       margin-bottom: 80px; } }
+  .left-nav__item:nth-of-type(2) {
+    position: relative; }
 
 .main-logo {
   display: none;
@@ -615,5 +617,49 @@ img {
   .search__indicator {
     font-weight: 900;
     font-size: 1.66667rem; }
+
+.cart {
+  display: none;
+  position: fixed;
+  padding-top: 15px;
+  padding-left: 5px;
+  min-height: 100px;
+  width: 320px;
+  background: #fff;
+  transform: translate(-44%, -120%);
+  vertical-align: middle;
+  overflow-y: scroll;
+  z-index: 10;
+  box-shadow: 1px 8px 14px #3a3c52; }
+  .cart--show {
+    display: block; }
+  @media screen and (min-width: 37em) {
+    .cart {
+      position: absolute;
+      right: 0;
+      top: -40px;
+      transform: translate(100%, 0%); } }
+  .cart__item {
+    padding: 5px;
+    text-align: left;
+    font-size: 170%; }
+    .cart__item-name {
+      margin-right: 30px;
+      padding-left: 70px;
+      background: url("../pics/products-small/red-seat--small.png");
+      background-size: 20% 100%;
+      background-position: left;
+      background-repeat: no-repeat; }
+    .cart__item-amount {
+      text-align: right;
+      margin-right: 20px; }
+  .cart__close-button {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #ff1f31;
+    border-radius: 50%;
+    cursor: pointer;
+    vertical-align: top; }
 
 /*# sourceMappingURL=style.css.map */

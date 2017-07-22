@@ -5,6 +5,7 @@ import RightNavComponent from '../components/navigation/RightNavComponent';
 import BurgerIconComponent from '../components/navigation/BurgerIconComponent';
 import changeCategory from '../actions/change-category-action';
 import toggleRightNav from '../actions/toggle-right-nav-action';
+import { toggleCart, deleteItemFromCart } from '../actions/cart-actions';
 
 class AppContentContainer extends React.Component {
 
@@ -17,7 +18,7 @@ class AppContentContainer extends React.Component {
 		return(
 			<div className="app-content">
 
-				<LeftNavComponent />
+				<LeftNavComponent items={this.props.cartReducer.items} show={this.props.cartReducer.show} deleteItem={this.props.deleteItemFromCart} toggleCart={this.props.toggleCart} />
 				<RightNavComponent show={this.props.rightNavToggle} changeCategory={this.changeCategory} />
 				<BurgerIconComponent clicked={this.props.burgerIconToggle} toggleRightNav={this.props.toggleRightNav} />
 
@@ -33,7 +34,8 @@ class AppContentContainer extends React.Component {
 function mapStateToProps(state) {
 	return {
 		rightNavToggle: state.rightNavToggle,
-		burgerIconToggle: state.burgerIconToggle
+		burgerIconToggle: state.burgerIconToggle,
+		cartReducer: state.cartReducer
 	};
 }
 
@@ -44,6 +46,12 @@ function mapDispatchToProps(dispatch) {
 		},
 		toggleRightNav: () => {
 			dispatch(toggleRightNav());
+		},
+		toggleCart: () => {
+			dispatch(toggleCart());
+		},
+		deleteItemFromCart: (key) => {
+			dispatch(deleteItemFromCart(key));
 		}
 	};
 }

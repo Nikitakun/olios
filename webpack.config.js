@@ -62,7 +62,7 @@ module.exports = env => {
 				},
 				{
 					test: /\.(png|jpg|svg)$/i,
-					loader: 'file-loader?context=src/pics/&name=[path][name].[ext]&publicPath=src/pics/&outputPath=public/src/'
+					loader: 'file-loader?context=src/pics/&name=[path][name].[ext]&publicPath=../src/pics/&useRelativePath=true'
 				}
 			]
 		},
